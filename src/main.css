@@ -1,0 +1,66 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	background: #121;
+	color: #FEE12B;
+	height: 100%;
+	width: 100%;
+}
+
+.main-content {
+	height: calc(100% - 60px);
+	width: 100%;
+	position: relative;
+}
+
+.current-and-playlist {
+	height: 100%;
+	width: 100%;
+	display: flex;
+}
+
+.current-song {
+	height: 100%;
+	flex-grow: 1;
+}
+
+.current-song > img {
+	object-fit: scale-down;
+	height: 100%;
+	width: 100%;
+}
+
+.playlist {
+	height: 100%;
+	width: 500px;
+	background: #FEE12B;
+	color: #000;
+}
+
+.song-search-modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(255, 255, 255, 0.5);
+	background-filter: blur(8px);
+	height: 100%;
+	width: 100%;
+	color: #000;
+}
+
+
+
+.controls {
+	height: 60px;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	background: #CCC;
+	color: #121;
+	padding: 10px;
+}
+
