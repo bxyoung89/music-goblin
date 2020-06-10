@@ -1,5 +1,6 @@
 {
   "name": "I'm Gonna Miss You",
   "artist": "Xorberax",
-  "image": "./content/songs/im-gonna-miss-you/miss.gif"
+  "image": "./content/songs/im-gonna-miss-you/miss.gif",
+  "audio": "./content/songs/im-gonna-miss-you/im-gonna-miss-you.mp3"
 }

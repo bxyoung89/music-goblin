@@ -5,22 +5,16 @@ const logoPath = './src/logo-placeholder.jpg';
 
 let previousImage = '';
 
-const render = (state) => {
-	const { currentSongIndex, playlist } = state;
-	let newImage = logoPath;
-	if (currentSongIndex !== undefined) {
-		const currentSong = playlist[currentSongIndex];
-		if (currentSong) {
-			newImage = currentSong.image;
-		}
-	}
+const render = () => {
+	const currentSong = StateManager.getCurrentSong();
+	const newImage = currentSong ? currentSong.image : logoPath;
 
 	if (newImage === previousImage) {
 		return;
 	}
 
 	previousImage = newImage;
-	imageIds.forEach(imageId => {
+	imageIds.forEach((imageId) => {
 		const imageElement = document.getElementById(imageId);
 		imageElement.src = newImage;
 	});

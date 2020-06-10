@@ -24,6 +24,13 @@ const StateManager = {
 			currentSongIndex: playlist.length === 0 ? 0 : currentSongIndex,
 		});
 	},
+	getCurrentSong: () => {
+		const { currentSongIndex, playlist } = state;
+		if (currentSongIndex === undefined) {
+			return undefined;
+		}
+		return playlist[currentSongIndex];
+	},
 };
 
 export default StateManager;
