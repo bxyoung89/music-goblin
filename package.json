@@ -1,0 +1,27 @@
+{
+  "name": "music-goblin",
+  "version": "0.0.0",
+  "description": "Open source template for making music websites",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
+    "build": "node ./build/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bxyoung89/music-goblin.git"
+  },
+  "author": "Music Goblin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bxyoung89/music-goblin/issues"
+  },
+  "homepage": "https://github.com/bxyoung89/music-goblin#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.21.1"
+  }
+}
