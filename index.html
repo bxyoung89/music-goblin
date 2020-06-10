@@ -15,13 +15,26 @@
 					Playlist goes here
 				</div>
 			</div>
-			<div class="song-search-modal" style="display: none;">
-				Song search modal
+			<div class="song-search-modal" id="song-search-modal">
+				<div class="song-search-modal-content">
+					<button class="song-search-close-button" id="song-search-close-button">+</button>
+					<div class="song-search-header">
+						<input placeholder="Search" class="song-search-input" id="song-search-input">
+					</div>
+					<div class="song-list" id="song-list">
+					</div>
+					<div class="song-search-empty" id="song-search-empty" style="display:none;">
+						No songs match your search!
+					</div>
+				</div>
+
 			</div>
 		</div>
 
 		<div class="controls">
 			Controls go here
 		</div>
+
+		<script src="./src/main.js" type="module" ></script>
 	</body>
 </html>

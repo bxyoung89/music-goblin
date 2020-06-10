@@ -1,5 +1,5 @@
 {
   "name": "Burgers, Fries, and Shakes",
   "artist": "Xorberax",
-  "image": "/content/songs/burgers-fries-and-shakes/bfs.jpg"
+  "image": "./content/songs/burgers-fries-and-shakes/bfs.jpg"
 }

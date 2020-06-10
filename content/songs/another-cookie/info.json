@@ -1,5 +1,5 @@
 {
   "name": "Another Cookie",
   "artist": "Xorberax",
-  "image": "/content/songs/another-cookie/cookie.jpg"
+  "image": "./content/songs/another-cookie/cookie.jpg"
 }
