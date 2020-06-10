@@ -15,11 +15,13 @@ const StateManager = {
 	setState,
 	subscribe: (callback) => subscribers.push(callback),
 	addSongToPlaylist: (song) => {
+		const { playlist, currentSongIndex } = state;
 		setState({
 			playlist: [
-				...(state.playlist || []),
+				...(playlist || []),
 				song,
 			],
+			currentSongIndex: playlist.length === 0 ? 0 : currentSongIndex,
 		});
 	},
 };

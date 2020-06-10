@@ -45,6 +45,9 @@ const onDeleteClicked = (index) => {
 	if (currentSongIndex > index) {
 		newCurrentSongIndex -= 1;
 	}
+	if (playlist.length === 1) {
+		newCurrentSongIndex = undefined;
+	}
 	StateManager.setState({
 		playlist: playlist.filter((song, i) => i !== index),
 		currentSongIndex: newCurrentSongIndex,

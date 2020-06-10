@@ -27,12 +27,23 @@ html, body {
 .current-song {
 	height: 100%;
 	flex-grow: 1;
+	position: relative;
 }
 
-.current-song > img {
-	object-fit: scale-down;
+.current-song-image-background {
+	object-fit: cover;
 	height: 100%;
 	width: 100%;
+	filter: blur(10px);
+}
+
+.current-song-image {
+	object-fit: contain;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 .controls {
