@@ -4,6 +4,8 @@
 		<meta charset="UTF-8">
 		<title>Music Goblin</title>
 		<link rel="stylesheet" href="./src/main.css" />
+		<link rel="stylesheet" href="./src/renderers/songSearchModal.css" />
+		<link rel="stylesheet" href="./src/renderers/playlist.css" />
 	</head>
 	<body>
 		<div class="main-content">
@@ -12,7 +14,11 @@
 					<img id="current-song-image" src="http://www.fillmurray.com/600/600">
 				</div>
 				<div class="playlist" id="playlist">
-					Playlist goes here
+					<div class="playlist-title">
+						Playlist
+					</div>
+					<div class="playlist-songs" id="playlist-songs">
+					</div>
 				</div>
 			</div>
 			<div class="song-search-modal" id="song-search-modal">

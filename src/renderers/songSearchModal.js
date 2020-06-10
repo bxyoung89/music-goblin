@@ -1,4 +1,5 @@
 import StateManager from '../stateManager.js';
+import makeNodeFromHtmlString from '../makeNodeFromHtmlString.js';
 
 const modalId = 'song-search-modal';
 const closeButtonId = 'song-search-close-button';
@@ -22,13 +23,11 @@ const makeSongHtml = (song) => {
 			</div>
 		</button>
 	`;
-	const parser = new DOMParser();
-	const document = parser.parseFromString(htmlString, 'text/html');
-	return document.body.firstChild;
+	return makeNodeFromHtmlString(htmlString);
 };
 
 const handleSongClick = (event) => {
-	const songId = event.target.getAttribute('data-search-song-id');
+	const songId = Number.parseInt(event.currentTarget.getAttribute('data-search-song-id'), 10);
 	const { allSongs } = StateManager.getState();
 	const matchingSong = allSongs.find((song) => song.id === songId);
 	if (matchingSong) {

@@ -1,0 +1,130 @@
+.song-search-modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(255, 255, 255, 0.5);
+	background-filter: blur(8px);
+	height: 100%;
+	width: 100%;
+	color: #000;
+}
+
+.song-search-modal-content {
+	height: 100%;
+	width: 100%;
+	position: relative;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.song-search-close-button {
+	color: #000;
+	font-size: 124px;
+	background: transparent;
+	border: 0;
+	transform: rotate(45deg);
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	cursor: pointer;
+	transition: all 300ms ease;
+	font-family: sans-serif;
+	line-height: 60px;
+}
+
+.song-search-close-button:hover {
+	color: #f00;
+}
+
+.song-search-close-button:focus {
+	outline: none;
+}
+
+.song-search-header {
+	height: 60px;
+	width: calc(100% - 80px);
+	margin-bottom: 20px;
+}
+
+.song-search-input {
+	display: block;
+	height: 100%;
+	width: 100%;
+	font-size: 60px;
+	border: 0;
+	background: transparent;
+	color: #121;
+}
+
+.song-search-input:focus {
+	outline: none;
+}
+
+.song-list {
+	max-height: calc(100% - 80px);
+	overflow-y: auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+	width: 100%;
+	grid-gap: 20px;
+}
+
+.song-search-song {
+	height: 100%;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+}
+
+.song-search-song:focus {
+	outline: none;
+}
+
+.song-search-song:hover .song-search-song-info {
+	top: 0;
+}
+
+.song-search-song-image {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.song-search-song-info {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background: rgba(255, 255, 255, 0.5);
+	background-filter: blur(8px);
+	color: #000;
+	transition: all 300ms ease;
+	padding: 10px;
+	text-align: left;
+}
+
+
+.song-search-artist-name {
+	font-size: 36px;
+}
+
+.song-search-song-name {
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.song-search-empty {
+	font-size: 36px;
+	color: #444;
+	font-weight: bold;
+	text-align: center;
+	padding: 20px;
+	margin-top: 80px;
+	font-family: sans-serif;
+}
