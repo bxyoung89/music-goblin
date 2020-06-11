@@ -10,6 +10,20 @@ const setState = (newState) => {
 	notifySubscribers();
 };
 
+const 	changeSong = (playlistIndex, play) => {
+	const newState = {
+		currentSongIndex: playlistIndex,
+		songTime: 0,
+		songLength: 0,
+		songPosition: 0,
+	};
+	if (play) {
+		newState.isPlaying = play;
+	}
+	setState(newState);
+};
+
+
 const StateManager = {
 	getState: () => state,
 	setState,
@@ -23,7 +37,7 @@ const StateManager = {
 			],
 		});
 		if (playlist.length === 0) {
-			setTimeout(() => this.changeSong(0));
+			setTimeout(() => changeSong(0, true));
 		}
 	},
 	getCurrentSong: () => {
@@ -33,14 +47,7 @@ const StateManager = {
 		}
 		return playlist[currentSongIndex];
 	},
-	changeSong: (playlistIndex) => {
-		this.setState({
-			currentSongIndex: playlistIndex,
-			songTime: 0,
-			songLength: 0,
-			songPosition: 0,
-		});
-	},
+	changeSong,
 };
 
 export default StateManager;

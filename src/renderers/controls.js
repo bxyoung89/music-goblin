@@ -2,33 +2,23 @@ import StateManager from '../stateManager.js';
 import SongSearchModal from './songSearchModal.js';
 
 const songSearchModalLauncherId = 'song-search-modal-launcher';
-const volumeControlSliderKnobId = 'volume-control-slider-knob';
-const volumeControlIconId = 'volume-control-icon';
+const previousButtonId = 'previous-button';
+const playButtonId = 'play-button';
+const nextButtonId = 'next-button';
 
-let isDraggingVolume = false;
-
-const getVolumeIconFromVolume = (volume) => {
-	if (volume === 0) {
-		return './src/images/speaker-silent-outline-with-a-cross.svg';
-	}
-	if (volume < 0.33) {
-		return './src/images/speaker-volume-1.svg';
-	}
-	if (volume < 0.66) {
-		return './src/images/speaker-volume-2.svg';
-	}
-	return './src/images/speaker-volume-3.svg';
-};
 
 const render = (state) => {
-	const { volume } = state;
-	const volumeControlIcon = document.getElementById(volumeControlIconId);
-	volumeControlIcon.src = getVolumeIconFromVolume(volume);
-	// stuff
-	const volumeControlSliderKnob = document.getElementById(volumeControlSliderKnobId);
-	const volumeControl = volumeControlSliderKnob.parentElement;
-	const volumeControlWidth = volumeControl.getBoundingClientRect().width;
-	volumeControlSliderKnob.style = `left: ${(volumeControlWidth - 20) * volume}px`;
+	const { playlist, currentSongIndex, isPlaying } = state;
+
+	const previousButton = document.getElementById(previousButtonId);
+	previousButton.disabled = playlist.length === 0 || currentSongIndex === 0;
+
+	const playButton = document.getElementById(playButtonId);
+	playButton.firstElementChild.src = isPlaying ? './src/images/play-triangle-outline.svg' : './src/images/pause-multimedia-outlined-button.svg';
+	playButton.disabled = playlist.length === 0;
+
+	const nextButton = document.getElementById(nextButtonId);
+	nextButton.disabled = playlist.length === 0 || currentSongIndex === playlist.length -1;
 };
 
 const Audio = {
@@ -43,30 +33,23 @@ const Audio = {
 		songSearchModalLauncher.addEventListener('click', () => {
 			SongSearchModal.open();
 		});
-		const volumeControlSliderKnob = document.getElementById(volumeControlSliderKnobId);
-		volumeControlSliderKnob.addEventListener('mousedown', () => {
-			isDraggingVolume = true;
+
+		const previousButton = document.getElementById(previousButtonId);
+		previousButton.addEventListener('click', () => {
+			const { currentSongIndex } = StateManager.getState();
+			StateManager.changeSong(currentSongIndex - 1);
 		});
-		document.addEventListener('mousemove', (event) => {
-			if (!isDraggingVolume) {
-				return;
-			}
-			const volumeControl = volumeControlSliderKnob.parentElement;
-			const boundingRect = volumeControl.getBoundingClientRect();
-			const { pageX } = event;
-			const start = boundingRect.left;
-			const end = boundingRect.right;
-			let volume = 0;
-			if (pageX > start) {
-				volume = Math.min(1, (pageX - start) / boundingRect.width);
-			}
-			if (pageX > end) {
-				volume = 1;
-			}
-			StateManager.setState({ volume });
+
+		const playButton = document.getElementById(playButtonId);
+		playButton.addEventListener('click', () => {
+			const { isPlaying } = StateManager.getState();
+			StateManager.setState({ isPlaying: !isPlaying });
 		});
-		document.addEventListener('mouseup', () => {
-			isDraggingVolume = false;
+
+		const nextButton = document.getElementById(nextButtonId);
+		nextButton.addEventListener('click', () => {
+			const { currentSongIndex } = StateManager.getState();
+			StateManager.changeSong(currentSongIndex + 1);
 		});
 	},
 };

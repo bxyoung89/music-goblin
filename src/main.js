@@ -5,6 +5,7 @@ import Playlist from './renderers/playlist.js';
 import CurrentSongImage from './renderers/currentSongImage.js';
 import Audio from './renderers/audio.js';
 import Controls from './renderers/controls.js';
+import VolumeControl from './renderers/volumeControl.js';
 
 const initialState = {
 	allSongs: [],
@@ -17,6 +18,7 @@ Playlist.init();
 CurrentSongImage.init();
 Audio.init();
 Controls.init();
+VolumeControl.init();
 
 
 window.fetch('./content.json')

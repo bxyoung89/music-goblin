@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="./src/renderers/songSearchModal.css" />
 		<link rel="stylesheet" href="./src/renderers/playlist.css" />
 		<link rel="stylesheet" href="./src/renderers/controls.css" />
+		<link rel="stylesheet" href="./src/renderers/volumeControls.css" />
 	</head>
 	<body>
 		<div class="main-content">
@@ -49,14 +50,14 @@
 				Do position indicator
 			</div>
 			<div class="song-controls">
-				<button class="previous-button control-button">
-					Previous
+				<button class="previous-button control-button" id="previous-button">
+					<img src="./src/images/left-arrow-first-track-button-outline.svg">
 				</button>
-				<button class="play-button control-button">
-					Play/Pause
+				<button class="play-button control-button" id="play-button">
+					<img src="./src/images/play-triangle-outline.svg">
 				</button>
-				<button class="next-button control-button">
-					Next
+				<button class="next-button control-button" id="next-button">
+					<img src="./src/images/last-track-outlined-multimedia-button.svg">
 				</button>
 				<button class="repeat-button control-button">
 					Repeat
