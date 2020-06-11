@@ -5,7 +5,8 @@ let currentHowl;
 
 const idToHowlMap = {};
 
-const render = () => {
+const render = (state) => {
+	Howler.volume(state.volume); // start volume at 50 for tonight.
 	const newSong = StateManager.getCurrentSong();
 	if (JSON.stringify(currentSong) === JSON.stringify(newSong)) {
 		return;
@@ -26,8 +27,7 @@ const render = () => {
 		});
 		idToHowlMap[currentSong.id] = currentHowl;
 	}
-
-	Howler.volume(0.1); // start volume at 50 for tonight.
+	
 	// todo time stuff in here
 	// https://github.com/goldfire/howler.js#documentation
 	// https://github.com/goldfire/howler.js/blob/master/examples/player/player.js#L42
@@ -38,7 +38,7 @@ const Audio = {
 	render,
 	init: () => {
 		StateManager.setState({
-			volume: 50,
+			volume: 0.5,
 		});
 		StateManager.subscribe(render);
 		render(StateManager.getState());
