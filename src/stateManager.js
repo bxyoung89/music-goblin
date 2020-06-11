@@ -10,7 +10,7 @@ const setState = (newState) => {
 	notifySubscribers();
 };
 
-const 	changeSong = (playlistIndex, play) => {
+const changeSong = (playlistIndex, play) => {
 	const newState = {
 		currentSongIndex: playlistIndex,
 		songDuration: 0,
