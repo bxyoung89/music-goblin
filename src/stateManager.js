@@ -13,9 +13,8 @@ const setState = (newState) => {
 const 	changeSong = (playlistIndex, play) => {
 	const newState = {
 		currentSongIndex: playlistIndex,
-		songTime: 0,
-		songLength: 0,
-		songPosition: 0,
+		songDuration: 0,
+		currentTimestampOfSong: 0,
 	};
 	if (play) {
 		newState.isPlaying = play;

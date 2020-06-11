@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="./src/renderers/playlist.css" />
 		<link rel="stylesheet" href="./src/renderers/controls.css" />
 		<link rel="stylesheet" href="./src/renderers/volumeControls.css" />
+		<link rel="stylesheet" href="./src/renderers/songPositionIndicator.css" />
 	</head>
 	<body>
 		<div class="main-content">
@@ -36,7 +37,6 @@
 						No songs match your search!
 					</div>
 				</div>
-
 			</div>
 		</div>
 
@@ -47,7 +47,12 @@
 				</button>
 			</div>
 			<div class="song-position-indicator">
-				Do position indicator
+				<div class="position-indicator-slider">
+					<button class="position-indicator-slider-knob" id="position-indicator-slider-knob"></button>
+				</div>
+				<div class="position-times">
+					<span class="current-time" id="current-time"></span>/<span class="song-duration" id="song-duration"></span>
+				</div>
 			</div>
 			<div class="song-controls">
 				<button class="previous-button control-button" id="previous-button">

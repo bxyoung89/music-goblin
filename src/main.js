@@ -6,6 +6,7 @@ import CurrentSongImage from './renderers/currentSongImage.js';
 import Audio from './renderers/audio.js';
 import Controls from './renderers/controls.js';
 import VolumeControl from './renderers/volumeControl.js';
+import SongPositionIndicator from './renderers/songPositionIndicator.js';
 
 const initialState = {
 	allSongs: [],
@@ -19,6 +20,7 @@ CurrentSongImage.init();
 Audio.init();
 Controls.init();
 VolumeControl.init();
+SongPositionIndicator.init();
 
 
 window.fetch('./content.json')

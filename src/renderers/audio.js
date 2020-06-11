@@ -15,7 +15,7 @@ const render = (state) => {
 		if (state.isPlaying) {
 			currentHowl.play();
 		} else {
-			currentHowl.stop();
+			currentHowl.pause();
 		}
 	}
 	if (songHasNotChanged) {
@@ -31,10 +31,36 @@ const render = (state) => {
 	if (savedHowl) {
 		currentHowl = savedHowl;
 	} else {
-		currentHowl = new Howl({
+		const updateOnAnimationFrame = (howl) => {
+			const currentPosition = howl.seek() || 0;
+			StateManager.setState({
+				currentTimestampOfSong: currentPosition,
+			});
+			if (!StateManager.getState().isPlaying) {
+				return;
+			}
+			window.requestAnimationFrame(() => { updateOnAnimationFrame(howl); });
+		};
+		const newHowl = new Howl({
 			src: currentSong.audio,
 			html5: true,
+			onend: () => {
+				const { currentSongIndex, playlist } = StateManager.getState();
+				const newIndex = currentSongIndex + 1;
+				if (newIndex === playlist.length) {
+					return;
+				}
+				StateManager.changeSong(newIndex);
+			},
+			onplay: () => {
+				const duration = newHowl.duration();
+				StateManager.setState({
+					songDuration: duration,
+				});
+				window.requestAnimationFrame(() => { updateOnAnimationFrame(newHowl); });
+			},
 		});
+		currentHowl = newHowl;
 		idToHowlMap[currentSong.id] = currentHowl;
 	}
 
