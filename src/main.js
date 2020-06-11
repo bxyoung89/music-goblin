@@ -4,6 +4,7 @@ import SongSearchModal from './renderers/songSearchModal.js';
 import Playlist from './renderers/playlist.js';
 import CurrentSongImage from './renderers/currentSongImage.js';
 import Audio from './renderers/audio.js';
+import Controls from './renderers/controls.js';
 
 const initialState = {
 	allSongs: [],
@@ -15,6 +16,7 @@ SongSearchModal.init();
 Playlist.init();
 CurrentSongImage.init();
 Audio.init();
+Controls.init();
 
 
 window.fetch('./content.json')

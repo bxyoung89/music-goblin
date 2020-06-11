@@ -15,14 +15,16 @@ const StateManager = {
 	setState,
 	subscribe: (callback) => subscribers.push(callback),
 	addSongToPlaylist: (song) => {
-		const { playlist, currentSongIndex } = state;
+		const { playlist } = state;
 		setState({
 			playlist: [
 				...(playlist || []),
 				song,
 			],
-			currentSongIndex: playlist.length === 0 ? 0 : currentSongIndex,
 		});
+		if (playlist.length === 0) {
+			setTimeout(() => this.changeSong(0));
+		}
 	},
 	getCurrentSong: () => {
 		const { currentSongIndex, playlist } = state;
@@ -30,6 +32,14 @@ const StateManager = {
 			return undefined;
 		}
 		return playlist[currentSongIndex];
+	},
+	changeSong: (playlistIndex) => {
+		this.setState({
+			currentSongIndex: playlistIndex,
+			songTime: 0,
+			songLength: 0,
+			songPosition: 0,
+		});
 	},
 };
 

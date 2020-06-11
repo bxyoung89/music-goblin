@@ -1,0 +1,59 @@
+.controls {
+	display: flex;
+}
+
+.control-button {
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	height: 40px;
+	width: 40px;
+}
+
+.control-button:focus {
+	outline: none;
+}
+
+.control-button img {
+	height: 100%;
+	width: 100%;
+}
+
+.modal-launchers {
+
+}
+
+.song-search-modal-launcher {
+	height: 40px;
+	width: 40px;
+	opacity: 1;
+	transition: all 300ms ease;
+}
+
+.song-search-modal-launcher:hover {
+	opacity: 0.5;
+}
+
+.song-position-indicator {
+	flex-grow: 1;
+}
+
+.song-controls {
+
+}
+
+.previous-button {}
+
+.play-button {}
+
+.next-button {
+
+}
+
+.repeat-button {
+
+}
+
+.volume-control {
+
+}

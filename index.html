@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="./src/main.css" />
 		<link rel="stylesheet" href="./src/renderers/songSearchModal.css" />
 		<link rel="stylesheet" href="./src/renderers/playlist.css" />
+		<link rel="stylesheet" href="./src/renderers/controls.css" />
 	</head>
 	<body>
 		<div class="main-content">
@@ -39,7 +40,31 @@
 		</div>
 
 		<div class="controls">
-			Controls go here
+			<div class="modal-launchers">
+				<button class="song-search-modal-launcher control-button" id="song-search-modal-launcher">
+					<img src="./src/images/search-magnifier-outline.svg">
+				</button>
+			</div>
+			<div class="song-position-indicator">
+				Do position indicator
+			</div>
+			<div class="song-controls">
+				<button class="previous-button control-button">
+					Previous
+				</button>
+				<button class="play-button control-button">
+					Play/Pause
+				</button>
+				<button class="next-button control-button">
+					Next
+				</button>
+				<button class="repeat-button control-button">
+					Repeat
+				</button>
+			</div>
+			<div class="volume-control">
+				volume control
+			</div>
 		</div>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
