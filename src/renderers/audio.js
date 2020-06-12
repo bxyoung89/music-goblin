@@ -10,6 +10,9 @@ const render = (state) => {
 	Howler.volume(state.volume); // start volume at 50 for tonight.
 	const newSong = StateManager.getCurrentSong();
 	const songHasNotChanged = JSON.stringify(currentSong) === JSON.stringify(newSong);
+	if (state.seekingTime && currentHowl) {
+		currentHowl.seek(state.seekingTime);
+	}
 	if (previousPlay !== state.isPlaying && currentHowl) {
 		previousPlay = state.isPlaying;
 		if (state.isPlaying) {
